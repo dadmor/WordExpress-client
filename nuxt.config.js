@@ -14,10 +14,13 @@ export default {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' }
+    ],
+    script: [
+      { src: 'https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js' }
     ]
   },
-
   /*
   ** Customize the progress-bar color
   */

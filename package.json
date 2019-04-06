@@ -1,0 +1,23 @@
+{
+  "name": "WordExpress-Client",
+  "version": "1.0.0",
+  "description": "My astounding Nuxt.js project",
+  "author": "",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/apollo": "^4.0.0-rc4",
+    "apollo-link-http": "^1.5.14",
+    "core-js": "2.5.x",
+    "cross-env": "^5.2.0",
+    "nuxt": "^2.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}

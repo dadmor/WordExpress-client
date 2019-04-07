@@ -94,6 +94,7 @@ export default {
   .places-list__wrap {
     margin-top: 48px;
     overflow-y: scroll;
+    height: calc(100% - 100px );
   }
 
   .places-list__place {
@@ -134,7 +135,8 @@ export default {
   }
 
   .places-list__place-title {
-
+    text-transform: uppercase;
+    font-size: 1.5rem;
   }
 
   @keyframes sidebar-show-box {

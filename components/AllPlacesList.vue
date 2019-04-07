@@ -1,5 +1,6 @@
 <template>
   <div :class="{ 'places-list': true,'show': posts }">
+    <img src="~/assets/logo.png" alt="Logo Opiekunnik" style="max-width: 100%; height: auto;"/>
     <h2 class="places-list__title">{{name}} - <span>{{posts && posts.length}}</span></h2>
     <div class="places-list__wrap" v-if="posts">
       <div

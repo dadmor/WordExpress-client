@@ -69,7 +69,7 @@ export default {
         map.addLayer({
           "id": "symbols",
           // fill, line, symbol, circle, heatmap, fill-extrusion, raster, hillshade, background
-          "type": "symbol",
+          "type": "circle",
           "source": {
             "type": "geojson",
             "data": {
@@ -78,8 +78,11 @@ export default {
             }
           },
           "layout": {
-            "icon-image": "rocket-15",
-            "icon-size": 1.5
+            // "icon-image": "rocket-15",
+            // "icon-size": 1.5
+            // "circle-color": "#000000"
+            // "circle-radius": 10
+            // "circle-stroke-width": 10
           }
         });
 

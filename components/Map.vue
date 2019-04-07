@@ -37,8 +37,8 @@ export default {
     const map = new mapboxgl.Map({
       container: 'map',
       style: 'mapbox://styles/mapbox/streets-v11',
-      center: [21.0629888, 52.2446194],
-      zoom: 10.15
+      center: [20.8, 52.2446194],
+      zoom: 11.15
     });
 
     if(this.posts){
@@ -63,36 +63,37 @@ export default {
         }
       });
 
-      console.log(this.markers);
+      if (this.markers && this.markers.length) {
+        map.on('load', () => {
+          map.loadImage("https://i.imgur.com/MK4NUzI.png", (error, image) => {
+            map.addImage("custom-marker", image);
 
-      map.on('load', () => {
-        map.addLayer({
-          "id": "symbols",
-          // fill, line, symbol, circle, heatmap, fill-extrusion, raster, hillshade, background
-          "type": "circle",
-          "source": {
-            "type": "geojson",
-            "data": {
-              "type": "FeatureCollection",
-              "features": this.markers
-            }
-          },
-          "layout": {
-            // "icon-image": "rocket-15",
-            // "icon-size": 1.5
-            // "circle-color": "#000000"
-            // "circle-radius": 10
-            // "circle-stroke-width": 10
-          }
-        });
+            map.addLayer({
+              "id": "symbols",
+              "type": "symbol",
+              "source": {
+                "type": "geojson",
+                "data": {
+                  "type": "FeatureCollection",
+                  "features": this.markers
+                }
+              },
+              "layout": {
+                "icon-image": "custom-marker"
+              }
+            });
 
-        map.on('click', 'symbols', (e) => {
-          this.setActivePlaceID(e.features[0].properties.place_id);
+            map.on('click', 'symbols', (e) => {
+              this.setActivePlaceID(e.features[0].properties.place_id);
+              e.features[0].geometry.coordinates[0] = e.features[0].geometry.coordinates[0] - 0.1;
+              map.flyTo({center:
+                e.features[0].geometry.coordinates
+              });
+            });
+          });
         });
-      });
+      }
     }
-
-    console.log(this.markers);
   },
   apollo: {
     posts: {

@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import PlacesByCategory from '~/apollo/gql/places.gql';
+import AllPlacesGql from '~/apollo/gql/allPlaces.gql';
 import { mapState, mapMutations } from 'vuex';
 
 export default {
@@ -32,9 +32,6 @@ export default {
     };
   },
   computed: {
-    posts() {
-      return this.category && this.category.posts;
-    },
     ...mapMutations({
       SET_ACTIVE_PLACE_ID: 'SET_ACTIVE_PLACE_ID',
       SET_SHOW_ACTIVE_PLACE: 'SET_SHOW_ACTIVE_PLACE'
@@ -50,13 +47,8 @@ export default {
     }
   },
   apollo: {
-    category: {
-      query: PlacesByCategory,
-      variables() {
-        return {
-          termId: this.categoryId
-        }
-      }
+    posts: {
+      query: AllPlacesGql
     }
   }
 }
@@ -104,6 +96,7 @@ export default {
     padding: 24px;
     font-family: Lato;
     font-weight: 300;
+    margin-bottom: 24px;
   }
 
   .places-list__place:after,

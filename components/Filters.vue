@@ -1,9 +1,9 @@
 <template>
   <div class="filters">
+    <div class="filters-logo">
+      <img src="~/assets/logo.png" alt="Logo Opiekunnik"/>
+    </div>
     <div class="filters-field">
-      <div class="filters-logo">
-        <img src="~/assets/logo.png" alt="Logo Opiekunnik"/>
-      </div>
       <label>Wybierz miasto</label>
       <select v-model="city" class="filters-field__select">
         <option
@@ -24,6 +24,17 @@
         v-text="item.name"
       />
       </select>
+    </div>
+    <div class="filters-field">
+      <label>Wiek dziecka</label>
+      <div class="filters-field__checkbox">
+        <input type="checkbox">
+        <span>3 - 5 lat</span>
+      </div>
+      <div class="filters-field__checkbox">
+        <input type="checkbox">
+        <span>6 - 10 lat</span>
+      </div>
     </div>
   </div>
 </template>
@@ -113,5 +124,46 @@ export default {
     font-size: 14px;
     font-weight: 400;
     font-family: Lato;
+  }
+
+  .filters-field__checkbox {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+  }
+
+  .filters-field__checkbox input {
+    position: absolute;
+    width: 80%;
+    height: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .filters-field__checkbox input:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 20px;
+    height: 20px;
+    border: 1px solid #3c9f00;
+    border-radius: 3px;
+    opacity: 1;
+    background: #fff;
+    pointer-events: none;
+  }
+
+  .filters-field__checkbox input:checked:after {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>');
+    background-position: center center;
+    background-color: #fff;
+  }
+
+  .filters-field__checkbox span {
+    padding: 8px;
+    margin-left: 20px;
   }
 </style>

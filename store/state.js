@@ -3,6 +3,7 @@ export default () => ({
     city: '4'
   },
   activePlaceID: '',
+  shwActivePlace: false,
   filters: {
     city: [
       {

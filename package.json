@@ -15,7 +15,8 @@
     "apollo-link-http": "^1.5.14",
     "core-js": "2.5.x",
     "cross-env": "^5.2.0",
-    "nuxt": "^2.4.0"
+    "nuxt": "^2.4.0",
+    "vue-select": "^2.6.4"
   },
   "devDependencies": {
     "nodemon": "^1.18.9"

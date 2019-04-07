@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <Filters />
+    <!-- <Filters /> -->
     <PlacesList />
     <PlaceContent />
   </div>
@@ -8,7 +8,7 @@
 
 <script>
 import Filters from '~/components/Filters.vue';
-import PlacesList from '~/components/PlacesList.vue';
+import PlacesList from '~/components/AllPlacesList.vue';
 import PlaceContent from '~/components/PlaceContent.vue';
 
 export default {

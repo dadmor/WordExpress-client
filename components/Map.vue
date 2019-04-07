@@ -68,6 +68,7 @@ export default {
       map.on('load', () => {
         map.addLayer({
           "id": "symbols",
+          // fill, line, symbol, circle, heatmap, fill-extrusion, raster, hillshade, background
           "type": "symbol",
           "source": {
             "type": "geojson",
@@ -77,7 +78,8 @@ export default {
             }
           },
           "layout": {
-            "icon-image": "rocket-15"
+            "icon-image": "rocket-15",
+            "icon-size": 1.5
           }
         });
 

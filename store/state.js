@@ -1,4 +1,8 @@
 export default () => ({
+  apolloFilters: {
+    city: '4'
+  },
+  activePlaceID: '',
   filters: {
     city: [
       {

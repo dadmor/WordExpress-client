@@ -1,12 +1,10 @@
-query Post($postType: [String]) {
-  posts(post_type: $postType){
-    id
-    post_name
-    post_content
-    post_title
-    post_meta{
-      meta_value
-      meta_key
+query Post($termId: Int){
+  category(term_id: $termId){
+    posts(post_type: "place"){
+      id
+      post_name
+      post_title
+      post_content
     }
   }
 }

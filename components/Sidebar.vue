@@ -1,16 +1,21 @@
 <template>
   <div class="sidebar">
-    {{name}}
     <Filters />
+    <PlacesList />
+    <PlaceContent />
   </div>
 </template>
 
 <script>
 import Filters from '~/components/Filters.vue';
+import PlacesList from '~/components/PlacesList.vue';
+import PlaceContent from '~/components/PlaceContent.vue';
 
 export default {
   components: {
-    Filters
+    Filters,
+    PlacesList,
+    PlaceContent
   },
   data() {
     return {
@@ -22,12 +27,13 @@ export default {
 
 <style scoped>
   .sidebar {
+    display: flex;
+    flex-flow: row;
     position: fixed;
-    width: 20%;
-    height: 80%;
-    top: 10%;
-    right: 50px;
-    background: #fff;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 0;
     z-index: 2;
   }
 </style>

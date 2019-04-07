@@ -15,7 +15,8 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' }
+      { rel: 'stylesheet', href: 'https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Lato:100i,300i,400,700,900' }
     ],
     script: [
       { src: 'https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js' }

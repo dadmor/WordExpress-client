@@ -9,6 +9,7 @@
         class="places-list__place"
       >
         <h3 class="places-list__place-title">{{place.post_title}}</h3>
+        <h4>{{place.post_meta.find(x => x.meta_key === 'address').meta_value}}</h4>
       </div>
     </div>
     <div v-else>

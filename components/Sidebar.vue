@@ -27,6 +27,7 @@ export default {
 
 <style scoped>
   .sidebar {
+    pointer-events: none;
     display: flex;
     flex-flow: row;
     position: fixed;

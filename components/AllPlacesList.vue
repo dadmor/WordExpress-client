@@ -56,6 +56,7 @@ export default {
 
 <style scoped>
   .places-list {
+    pointer-events: auto;
     position: relative;
     left: -100%;
     max-width: 450px;

@@ -77,9 +77,11 @@ export default {
     animation-duration: .5s;
     max-width: 800px;
     min-width: 500px;
+    pointer-events: none;
   }
 
   .place-content.show {
+    pointer-events: auto;
     left: 0;
     animation-name: place-content-show-box;
     animation-duration: .5s;

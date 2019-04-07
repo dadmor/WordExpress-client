@@ -78,6 +78,7 @@ export default {
 
 <style scoped>
   .filters {
+    pointer-events: auto;
     position: relative;
     display: flex;
     flex: 1;

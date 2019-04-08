@@ -1,10 +1,11 @@
-query Post($termId: Int){
-  category(term_id: $termId){
-    posts(post_type: "place"){
-      id
-      post_name
-      post_title
-      post_content
+query Post($cityID: Int, $activityID: Int){
+  terms(city: $cityID, activity: $activityID, ageGroup: 11 ){
+    id
+    post_title
+    post_meta{
+      meta_id
+      meta_key
+      meta_value
     }
   }
 }

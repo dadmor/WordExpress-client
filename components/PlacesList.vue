@@ -33,14 +33,15 @@ export default {
   },
   computed: {
     posts() {
-      return this.category && this.category.posts;
+      return this.terms;
     },
     ...mapMutations({
       SET_ACTIVE_PLACE_ID: 'SET_ACTIVE_PLACE_ID',
       SET_SHOW_ACTIVE_PLACE: 'SET_SHOW_ACTIVE_PLACE'
     }),
     ...mapState({
-      categoryId: state => state.apolloFilters.city
+      categoryId: state => state.apolloFilters.city,
+      activityId: state => state.apolloFilters.activity
     })
   },
   methods: {
@@ -50,11 +51,12 @@ export default {
     }
   },
   apollo: {
-    category: {
+    terms: {
       query: PlacesByCategory,
       variables() {
         return {
-          termId: this.categoryId
+          cityID: this.categoryId,
+          activityID: this.activityId
         }
       }
     }

@@ -75,8 +75,7 @@ export default {
     z-index: 0;
     animation-name: place-content-hide-box;
     animation-duration: .5s;
-    max-width: 800px;
-    min-width: 500px;
+    width: 500px;
     pointer-events: none;
   }
 
@@ -89,7 +88,7 @@ export default {
 
   .place-content__title {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row;
     justify-content: space-between;
     font-family: Lato;
     font-size: 24px;

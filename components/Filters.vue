@@ -4,8 +4,8 @@
       <img src="~/assets/logo.png" alt="Logo Opiekunnik"/>
     </div>
     <div class="filters-field">
-      <label>Wybierz miasto</label>
-      <select v-model="city" class="filters-field__select">
+      <label>Wybierz dzielnice</label>
+      <select v-model="stateCity" class="filters-field__select">
         <option
           v-for="item in filters.city"
           :key="item.term_id"
@@ -14,28 +14,32 @@
         />
       </select>
     </div>
-    <div class="filters-field" v-if="childWithCity">
-      <label>Wybierz dzielnice</label>
-      <select v-model="stateCity" class="filters-field__select">
+    <div class="filters-field">
+      <label>Rodzaj zajęć</label>
+      <select v-model="stateActivity" class="filters-field__select">
         <option
-        v-for="item in childWithCity.child"
-        :key="item.term_id"
-        v-bind:value="item.term_id"
+        v-for="item in listActivites"
+        :key="item.id"
+        v-bind:value="item.id"
         v-text="item.name"
       />
       </select>
     </div>
-    <div class="filters-field">
-      <label>Wiek dziecka</label>
+    <!-- <div class="filters-field">
+      <label>Rodzaj zajęć</label>
       <div class="filters-field__checkbox">
-        <input type="checkbox">
-        <span>3 - 5 lat</span>
+        <input type="checkbox" value="">
+        <span>Czytanie bajek</span>
       </div>
       <div class="filters-field__checkbox">
-        <input type="checkbox">
-        <span>6 - 10 lat</span>
+        <input type="checkbox" value="">
+        <span>Gry komputerowe</span>
       </div>
-    </div>
+      <div class="filters-field__checkbox">
+        <input type="checkbox" value="">
+        <span>Gry planszowe</span>
+      </div>
+    </div> -->
   </div>
 </template>
 
@@ -51,7 +55,90 @@ export default {
   data() {
     return {
       name: 'Filters',
-      city: '2'
+      city: '2',
+      activites: '',
+      listActivites: [
+        {
+          name: 'Czytanie bajek',
+          id: 27
+        },
+        {
+          name: 'Gry komputerowe',
+          id: 37
+        },
+        {
+          name: 'Gry planszowe',
+          id: 18
+        },
+        {
+          name: 'Internet',
+          id: 32
+        },
+        {
+          name: 'Konstruktorzy',
+          id: 28
+        },
+        {
+          name: 'Mali konstruktorzy',
+          id: 12
+        },
+        {
+          name: 'Pływanie rekreacyjne',
+          id: 19
+        },
+        {
+          name: 'Projekcje filmowe',
+          id: 8
+        },
+        {
+          name: 'Udostępnienie hali i boiska zewnętrznego',
+          id: 20
+        },
+        {
+          name: 'Warsztaty ceramiczne',
+          id: 9
+        },
+        {
+          name: 'Warsztaty Lego',
+          id: 10
+        },
+        {
+          name: 'Warsztaty taneczno-wokalne',
+          id: 13
+        },
+        {
+          name: 'Warsztaty teatralne',
+          id: 14
+        },
+        {
+          name: 'Wesołe Laboratorium',
+          id: 15
+        },
+        {
+          name: 'XBOX',
+          id: 22
+        },
+        {
+          name: 'Zajęcia MultiArt',
+          id: 23
+        },
+        {
+          name: 'Zajęcia MultiMusic',
+          id: 24
+        },
+        {
+          name: 'Zajęcia muzyczne',
+          id: 35
+        },
+        {
+          name: 'Zajęcia plastyczne',
+          id: 25
+        },
+        {
+          name: 'Zajęcia taneczne',
+          id: 16
+        }
+      ]
     };
   },
   computed: {
@@ -62,7 +149,8 @@ export default {
       filters: state => {return state.filters}
     }),
     ...mapMutations({
-      SET_NEW_CITY: 'SET_NEW_CITY'
+      SET_NEW_CITY: 'SET_NEW_CITY',
+      SET_NEW_ACTIVITY: 'SET_NEW_ACTIVITY'
     }),
     stateCity: {
       get() {
@@ -70,6 +158,14 @@ export default {
       },
       set(newCity) {
         this.$store.commit('SET_NEW_CITY', newCity);
+      }
+    },
+    stateActivity: {
+      get() {
+        return this.$store.state.apolloFilters.activity;
+      },
+      set(newActivity) {
+        this.$store.commit('SET_NEW_ACTIVITY', newActivity);
       }
     }
   }

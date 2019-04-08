@@ -12,6 +12,10 @@
         <h3 class="places-list__place-title">{{place.post_title}}</h3>
         <h4>{{place.post_meta.find(x => x.meta_key === 'address').meta_value}}</h4>
         <p>kontakt: {{place.post_meta.find(x => x.meta_key === 'tel').meta_value}}</p>
+        <span class="places-list__place-tag">
+          {{place.categories.find(x => x.taxonomy_name === 'city').name}}
+        </span>
+
       </div>
     </div>
     <div v-else>
@@ -137,6 +141,13 @@ export default {
   .places-list__place-title {
     text-transform: uppercase;
     font-size: 1.5rem;
+  }
+
+  .places-list__place-tag {
+    padding: 0.2em 0.3em;
+    background: #89d775;
+    line-height: 2em;
+    color: #fff;
   }
 
   @keyframes sidebar-show-box {

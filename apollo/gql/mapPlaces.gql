@@ -1,5 +1,5 @@
 query Post{
-  posts(post_type: ["place"]){
+  posts(post_type: ["place"], limit: 99){
     id
     post_title
     post_meta{
